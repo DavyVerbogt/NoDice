@@ -1,6 +1,6 @@
-package net.colt.fabric;
+package net.colt.nodice.fabric;
 
-import net.colt.NoDice;
+import net.colt.nodice.NoDice;
 import net.fabricmc.api.ModInitializer;
 
 public class NoDiceFabric implements ModInitializer {

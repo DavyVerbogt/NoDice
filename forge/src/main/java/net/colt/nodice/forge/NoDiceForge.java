@@ -1,7 +1,8 @@
-package net.colt.forge;
+package net.colt.nodice.forge;
 
 import dev.architectury.platform.forge.EventBuses;
-import net.colt.NoDice;
+import net.colt.nodice.NoDice;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 

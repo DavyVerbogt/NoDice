@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.colt.fabric.NoDiceFabric"
+      "net.colt.nodice.fabric.NoDiceFabric"
     ]
   },
   "mixins": [
