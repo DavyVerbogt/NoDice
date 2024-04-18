@@ -1,9 +1,27 @@
 package net.colt.nodice.config;
 
-public class PlayerStatsConfig{
+import net.minecraftforge.common.ForgeConfigSpec;
+import org.apache.commons.lang3.tuple.Pair;
 
-    private String playerName = "Heath";
+import java.util.ArrayList;
+import java.util.function.Function;
 
-    public PlayerStatsConfig() {
+public class PlayerStatsConfig {
+
+    public static ForgeConfigSpec SPEC;
+
+    public static final ForgeConfigSpec.ConfigValue<String> CharachterName;
+
+    static {
+        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+
+        builder.push("Charachter sheet");
+
+        builder.comment("Name and descreption");
+        String defauktName = "Insert Name Here";
+        CharachterName = builder.define("Charachter Name", defauktName);
+
+        builder.pop();
+        SPEC = builder.build();
     }
 }
