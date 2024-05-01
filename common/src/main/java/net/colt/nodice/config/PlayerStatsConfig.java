@@ -12,6 +12,11 @@ public class PlayerStatsConfig {
 
     public static final ForgeConfigSpec.ConfigValue<String> CharachterName;
     public static final ForgeConfigSpec.IntValue STRStat;
+    public static final ForgeConfigSpec.IntValue DEXStat;
+    public static final ForgeConfigSpec.IntValue CONStat;
+    public static final ForgeConfigSpec.IntValue INTStat;
+    public static final ForgeConfigSpec.IntValue WISStat;
+    public static final ForgeConfigSpec.IntValue CHAStat;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -24,6 +29,12 @@ public class PlayerStatsConfig {
         builder.comment("Stats");
         int defaultStat = 10;
         STRStat = builder.defineInRange("Strength Stat", defaultStat, 0, 20);
+        DEXStat = builder.defineInRange("Dexterity Stat", defaultStat, 0, 20);
+        CONStat = builder.defineInRange("Constitution Stat", defaultStat, 0, 20);
+        INTStat = builder.defineInRange("Intelligence Stat", defaultStat, 0, 20);
+        WISStat = builder.defineInRange("Wisdom Stat", defaultStat, 0, 20);
+        CHAStat = builder.defineInRange("Charisma Stat", defaultStat, 0, 20);
+
 
         builder.pop();
         SPEC = builder.build();

@@ -58,7 +58,7 @@ rollDice(20,1,1);
         for (int i = 0; i < StatTypes.length; i++) {
             this.StatButtons.add(new StatsButton(this.windowLeft + 100 + (i * 60), this.windowTop + 10,Component.translatable("gui." + NoDice.MOD_ID + "." + StatTypes[i] + "_button"), onPress -> {
                 rollDice(20, 1, 1);
-            }));
+            },StatTypes[i]));
             this.addRenderableWidget(this.StatButtons.get(i));
         }
     }
