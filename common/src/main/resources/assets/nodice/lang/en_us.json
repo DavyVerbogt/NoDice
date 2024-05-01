@@ -1,3 +1,10 @@
 {
-  "item.examplemod.example_item": "Example Item"
+  "item.examplemod.example_item": "Example Item",
+  "gui.nodice.str_button": "Str",
+  "gui.nodice.dex_button": "Dex",
+  "gui.nodice.int_button": "Int",
+  "gui.nodice.con_button": "Con",
+  "gui.nodice.wis_button": "Wis",
+  "gui.nodice.cha_button": "Cha"
+
 }

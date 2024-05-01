@@ -11,6 +11,7 @@ public class PlayerStatsConfig {
     public static ForgeConfigSpec SPEC;
 
     public static final ForgeConfigSpec.ConfigValue<String> CharachterName;
+    public static final ForgeConfigSpec.IntValue STRStat;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -20,6 +21,9 @@ public class PlayerStatsConfig {
         builder.comment("Name and descreption");
         String defauktName = "Insert Name Here";
         CharachterName = builder.define("Charachter Name", defauktName);
+        builder.comment("Stats");
+        int defaultStat = 10;
+        STRStat = builder.defineInRange("Strength Stat", defaultStat, 0, 20);
 
         builder.pop();
         SPEC = builder.build();

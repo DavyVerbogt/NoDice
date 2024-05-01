@@ -10,7 +10,7 @@ import net.minecraftforge.fml.config.ModConfig;
 public class NoDiceFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        ForgeConfigRegistry.INSTANCE.register(NoDice.MOD_ID, ModConfig.Type.SERVER, PlayerStatsConfig.SPEC,"nodice/player_stats.json");
+        ForgeConfigRegistry.INSTANCE.register(NoDice.MOD_ID, ModConfig.Type.SERVER, PlayerStatsConfig.SPEC,"nodice/player_stats.toml");
         NoDice.init();
     }
 }

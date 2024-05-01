@@ -24,7 +24,6 @@ public class NoDice {
 
 
     public static void init() {
-        @
         KeyMappingRegistry.register(NoDiceKeyMapping.KeyGui);
         NoDiceKeyMapping.KeyAction();
 

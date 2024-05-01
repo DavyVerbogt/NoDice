@@ -1,25 +1,21 @@
 package net.colt.nodice.client.gui;
 
-import com.mojang.brigadier.context.CommandContext;
-import dev.architectury.event.EventResult;
-import dev.architectury.event.events.client.ClientChatEvent;
 import net.colt.nodice.NoDice;
+import net.colt.nodice.client.gui.elements.StatsButton;
 import net.colt.nodice.client.gui.elements.DiceToast;
 import net.colt.nodice.client.gui.elements.PlayerRenderer;
+import net.colt.nodice.config.PlayerStatsConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 
-import net.minecraft.client.gui.components.ChatComponent;
 import net.minecraft.client.gui.components.Tooltip;
-import net.minecraft.client.gui.components.toasts.Toast;
-import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DiceGUI extends Screen {
     public static final ResourceLocation GUI_TEXTURE = new ResourceLocation(NoDice.MOD_ID, "textures/gui/sheet.png");
@@ -28,13 +24,14 @@ public class DiceGUI extends Screen {
     private final int windowHeight;
     private int windowLeft;
     private int windowTop;
+    private final String[] StatTypes = {"str", "dex", "con", "int", "wis", "cha"};
 
     private Button D20Button;
-
+    private ArrayList<StatsButton> StatButtons = new ArrayList<StatsButton>();
 
     private static DiceGUI instance = null;
     protected DiceGUI() {
-        super(Component.translatable("nodice:dicegui"));
+        super(Component.nullToEmpty(PlayerStatsConfig.CharachterName.get()));
         this.windowWidth = 600;
         this.windowHeight = 300;
 
@@ -48,6 +45,7 @@ public class DiceGUI extends Screen {
         this.windowTop = (this.height - this.windowHeight) / 2;
 
         DiceButtons();
+        StatButtons();
     }
 
     private void DiceButtons(){
@@ -56,10 +54,19 @@ rollDice(20,1,1);
     }).pos(this.windowLeft+10,this.windowTop+100).size(40,30).tooltip(Tooltip.create(Component.translatable("nodice:d20tooltip"))).build());
     }
 
+    private void StatButtons() {
+        for (int i = 0; i < StatTypes.length; i++) {
+            this.StatButtons.add(new StatsButton(this.windowLeft + 100 + (i * 60), this.windowTop + 10,Component.translatable("gui." + NoDice.MOD_ID + "." + StatTypes[i] + "_button"), onPress -> {
+                rollDice(20, 1, 1);
+            }));
+            this.addRenderableWidget(this.StatButtons.get(i));
+        }
+    }
+
     private void rollDice(int DiceType, int DiceAmount, int Modifier)
     {
         minecraft.getToasts().addToast(new DiceToast("Rolling d"+DiceType+": " + (int) ((Math.random() * (DiceType - 1)) + 1)));
-        Minecraft.getInstance().player.sendSystemMessage(Component.nullToEmpty(Minecraft.getInstance().player.getName().getString()+" Rolled d"+DiceType+": " + (int) ((Math.random() * (DiceType - 1)) + 1)));
+        Minecraft.getInstance().player.sendSystemMessage(Component.nullToEmpty(PlayerStatsConfig.CharachterName.get()+"Rolled a D"+DiceType+": "+ (int) ((Math.random() * (DiceType - 1)) + 1)));
     }
 
 
@@ -98,4 +105,5 @@ rollDice(20,1,1);
 
         return instance;
     }
+
 }
