@@ -2,6 +2,7 @@ package net.colt.nodice.forge;
 
 import dev.architectury.platform.forge.EventBuses;
 import net.colt.nodice.NoDice;
+import net.colt.nodice.config.ImguiConfig;
 import net.colt.nodice.config.PlayerStatsConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -15,6 +16,7 @@ public class NoDiceForge {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(NoDice.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, PlayerStatsConfig.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ImguiConfig.SPEC);
         NoDice.init();
     }
 }

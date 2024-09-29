@@ -1,12 +1,10 @@
 package net.colt.nodice.client.gui.elements;
 
-import net.colt.nodice.client.gui.DiceGUI;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.toasts.Toast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.network.chat.Component;
-import org.spongepowered.asm.util.Bytecode;
 
 public class DiceToast implements Toast {
 

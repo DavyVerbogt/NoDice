@@ -5,6 +5,7 @@
   "gui.nodice.int_button": "Int",
   "gui.nodice.con_button": "Con",
   "gui.nodice.wis_button": "Wis",
-  "gui.nodice.cha_button": "Cha"
+  "gui.nodice.cha_button": "Cha",
+  "gui.nodice.Acrobatics_button": "Acrobatics"
 
 }
