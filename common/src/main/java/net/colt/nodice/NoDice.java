@@ -3,6 +3,7 @@ package net.colt.nodice;
 import com.mojang.logging.LogUtils;
 import dev.architectury.platform.Platform;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
+
 import net.minecraft.resources.*;
 import org.slf4j.Logger;
 
@@ -16,7 +17,6 @@ public class NoDice {
     public static void init() {
         KeyMappingRegistry.register(NoDiceKeyMapping.KeyGui);
         NoDiceKeyMapping.KeyAction();
-
     }
 
     public static Path getConfigDirectory() {

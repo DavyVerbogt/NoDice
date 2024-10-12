@@ -47,6 +47,8 @@ public class ImGuiRenderer {
     public void init(ImGuiDrawCall config) {
         ImGui.createContext();
 
+        ImGuiIO io = ImGui.getIO();
+        io.addConfigFlags(ImGuiConfigFlags.ViewportsEnable);
         config.execute();
         imGuiGlfw.init(Minecraft.getInstance().getWindow().getWindow(), false);
         imGuiGl.init();
